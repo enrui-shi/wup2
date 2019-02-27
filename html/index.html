@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>HELLO WORLD</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="scrip/app.js"></script>
 </head>
 <body>
     <h1>WELCOME</h1>
     <div class="login_form">
-    <form action="/login" method="post">
+    <form enctype='application/json' action="/login" method="post">
       <input type="text" placeholder="Username" name="username">
       <input type="text" placeholder="Password" name="psw">
       <button type="submit">Login</button>
