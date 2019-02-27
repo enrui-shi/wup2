@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/',function(req,res){
-    res.send('GET route on things.');
+    console.log(req.body);
+    res.send('POST RECEIVED');
     //res.sendFile(path.join(__dirname+'/html/index.html'));
 })
 
