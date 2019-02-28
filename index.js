@@ -4,6 +4,7 @@ const path = require('path');
 const port = 3000
 var login = require('./routes/login.js');
 app.use("/styles", express.static(__dirname + '/styles'));
+app.use("/script", express.static(__dirname + '/script'));
 
 app.get('/',function(req,res){
     //res.send('GET route on things.');
