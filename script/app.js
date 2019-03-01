@@ -4,8 +4,8 @@ $(document).ready(function(){
         e.preventDefault();
         $.ajax({
             type: login_form.attr('method'),
-            url: "/adduser",
-            data: login_form.serializeArray(),
+            url: login_form.attr('action'),
+            data: JSON.stringify(login_form.serializeArray()),
             success: function (data){
                 console.log(data);
             }
