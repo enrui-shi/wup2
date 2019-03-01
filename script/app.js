@@ -4,7 +4,7 @@ login_form.submit( function(e) {
     $.ajax({
         type: login_form.attr('method'),
             url: login_form.attr('action'),
-            data: frm.serialize(),
+            data: {user: "a"},
             success: function (data){
                 console.log(data);
             }
