@@ -3,8 +3,7 @@ var router = express.Router();
 
 router.post('/',function(req,res){
     console.log(req.body);
-    res.send('login');
-    //res.sendFile(path.join(__dirname+'/html/index.html'));
+    res.send('adduser');
 })
 
 //export this router to use in our index.js
