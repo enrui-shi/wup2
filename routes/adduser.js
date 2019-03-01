@@ -16,7 +16,6 @@ router.post('/',jsonParser,function(req,res,next){
     db.collection("user").insertOne(data, function(err, res) {
         if (err) {
             console.log(err);
-            res.json({ status:'ERROR'});
         }else{
             console.log("1 document inserted");
         }
