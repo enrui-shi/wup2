@@ -25,7 +25,7 @@ router.post('/',jsonParser,function(req,res,next){
     next();
 })
 router.use(function (req, res) {
-    res.redirt('/')
+    res.redirect('/');
   });
 
 //export this router to use in our index.js
