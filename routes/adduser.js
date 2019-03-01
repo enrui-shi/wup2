@@ -7,7 +7,9 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-
+router.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/html/adduser.html'));
+});
 router.post('/',jsonParser,function(req,res){
     data = req.body;
     data['valide'] = "false";
