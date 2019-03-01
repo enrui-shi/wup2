@@ -7,7 +7,7 @@ $(document).ready(function(){
             type: login_form.attr('method'),
             url: login_form.attr('action'),
             contentType:"application/json; charset=utf-8",
-            data: login_form.serializeArray(),
+            data: JSON.stringify(login_form.serializeArray()),
             dataType:"json",
             success: function (data){
                 console.log(data);
