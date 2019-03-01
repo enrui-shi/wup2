@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 3000;
-
+const MongoClient = require('mongodb').MongoClient;
 
 //routes
 var login = require('./routes/login.js');
@@ -23,6 +23,11 @@ app.use('/login', login);
 app.use('/adduser', adduser);
 
 // start app
-app.listen(port,'0.0.0.0', () => {
-    return console.log(`App listening on port ${port}!`);
-})
+
+MongoClient.connect('mongodb://130.245.171.133:27017/wup2', (err, database) => {
+    // ... start the server
+    app.listen(port,'0.0.0.0', () => {
+        return console.log(`App listening on port ${port}!`);
+    })
+  })
+  
