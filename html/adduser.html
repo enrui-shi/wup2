@@ -3,13 +3,14 @@
 <head>
     <title>HELLO WORLD</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script/login.js"></script>
+    <script src="script/adduser.js"></script>
 </head>
 <body>
-    <h1>WELCOME</h1>
-    <div class="login_form">
-    <form id="login" action="/login" method="post">
+    <h1>Create A User</h1>
+    <div class="adduser_form">
+    <form id="adduser" action="/adduser" method="post">
       <input id="username" type="text" placeholder="Username" name="username">
+      <input id="email" type="text" placeholder="e-mail" name="email">
       <input id="password" type="text" placeholder="Password" name="psw">
       <input type="submit" value="Submit" />
     </form>

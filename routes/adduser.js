@@ -8,7 +8,7 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
-router.post('/',jsonParser,function(req,res,next){
+router.post('/',jsonParser,function(req,res){
     data = req.body;
     data['valide'] = "false";
     var db = req.app.locals.db;
@@ -21,12 +21,9 @@ router.post('/',jsonParser,function(req,res,next){
         }
       });
     console.log(data);
+    res.location('/html/index.html');
     res.json({ status:'OK'});
-    next();
 })
-router.use(function (req, res) {
-    res.redirect('/');
-  });
 
 //export this router to use in our index.js
 module.exports = router;
