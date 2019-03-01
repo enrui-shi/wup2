@@ -10,7 +10,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.post('/',jsonParser,function(req,res){
     var db = req.app.locals.db;
-    db.User.insert(req.body);
+    console.log(db);
     console.log(req.body);
     res.json({ status:'OK'})
     //res.send('adduser');
