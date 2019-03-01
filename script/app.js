@@ -5,7 +5,7 @@ $(document).ready(function(){
         $.ajax({
             type: login_form.attr('method'),
             url: login_form.attr('action'),
-            data: login_form.seriaize(),
+            data: login_form.serialize(),
             success: function (data){
                 console.log(data);
             }
