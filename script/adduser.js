@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    var adduser_form = $('#adduser');
+    var adduser_form = $("#adduser");
     adduser_form.submit( function(e) {
         var adduser_data = { name: $('#username').val(), email: $('#email').val() , password: $('#password').val() };
         e.preventDefault();
