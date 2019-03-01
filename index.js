@@ -26,7 +26,12 @@ app.use('/adduser', adduser);
 
 MongoClient.connect('mongodb://130.245.171.133:27017', (err, client) => {
     // ... start the server
-    db = client.db('wup2')
+    if(err){
+        console.log(err);
+    }else{
+        console.log(client);
+    }
+    db = client.db('wup2');
     app.listen(port,'0.0.0.0', () => {
         return console.log(`App listening on port ${port}!`);
     })
