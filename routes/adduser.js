@@ -9,13 +9,15 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 router.post('/',jsonParser,function(req,res){
+    data = req.body;
+    data['valide'] = "false";
     var db = req.app.locals.db;
-    console.log(db);
-    db.collection("user").insertOne(req.body, function(err, res) {
+    //add user to database
+    db.collection("user").insertOne(data, function(err, res) {
         if (err) throw err;
         console.log("1 document inserted");
       });
-    console.log(req.body);
+    console.log(data);
     res.json({ status:'OK'})
     //res.send('adduser');
 })
