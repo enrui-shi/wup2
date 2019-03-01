@@ -29,9 +29,10 @@ MongoClient.connect('mongodb://130.245.171.133:27017', (err, client) => {
     if(err){
         console.log(err);
     }else{
-        console.log(client);
+        console.log("success connet to db");
     }
     db = client.db('wup2');
+    console.log(db);
     app.listen(port,'0.0.0.0', () => {
         return console.log(`App listening on port ${port}!`);
     })
