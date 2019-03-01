@@ -10,7 +10,7 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get('/',function(req,res){
-    res.sendFile(path.join(__dirname+'/html/adduser.html'));
+    res.sendFile(path.join(__dirname+'/..'+'/html/adduser.html'));
 });
 router.post('/',jsonParser,function(req,res){
     data = req.body;
