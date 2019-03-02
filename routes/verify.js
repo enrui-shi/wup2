@@ -8,10 +8,10 @@ router.post('/',jsonParser,function(req,res){
     data = req.body;
     console.log(data);
     console.log(data.email);
-    console.log(data[key]);
+    console.log(data['key']);
     var db = req.app.locals.db;
     const cursor = db.collection('user').find({ 'email': data['email'] });
-    //console.log(cursor);
+    console.log(cursor.pretty());
     res.json({ status:'OK'});
 });
 
