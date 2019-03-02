@@ -13,8 +13,8 @@ router.post('/',jsonParser,function(req,res){
     db.collection('user').find({ 'email': data['email'] },function(error, cursor){
         console.log("get cursor");
         console.log(cursor);
-        cursor.forEach(function(error,field){
-                console.log(field);
+        cursor.forEach(function(error,doc){
+                console.log(doc);
         });
     });
     res.json({ status:'OK'});
