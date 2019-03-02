@@ -15,6 +15,7 @@ router.get('/',function(req,res){
 router.post('/',jsonParser,function(req,res){
     data = req.body;
     data['valide'] = "false";
+    data['key'] = Math.floor((Math.random() * 8999) + 1000);
     var db = req.app.locals.db;
     //add user to database
     db.collection("user").insertOne(data, function(err, res) {
@@ -25,7 +26,6 @@ router.post('/',jsonParser,function(req,res){
         }
       });
     console.log(data);
-    res.location('/html/index.html');
     res.json({ status:'OK'});
 })
 
