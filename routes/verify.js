@@ -11,7 +11,7 @@ router.post('/',jsonParser,function(req,res){
     console.log(data['key']);
     var db = req.app.locals.db;
     db.collection('user').find({ 'email': data['email'] },function(error, cursor){
-        cursor.each(function(error,data){
+        cursor.forEach(function(error,data){
             if(data){
                 console.log(data);
             }
