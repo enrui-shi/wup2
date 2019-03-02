@@ -12,6 +12,9 @@ $(document).ready(function(){
             dataType:"json",
             success: function (data){
                 console.log(data);
+                if (data.status=='OK'){
+                    window.location.href('/')
+                }
             }
     })
 })

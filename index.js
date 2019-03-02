@@ -5,6 +5,7 @@ const path = require('path');
 const port = 3000;
 const MongoClient = require('mongodb').MongoClient;
 
+const mongo_address = 'mongodb://130.245.171.133:27017';
 //routes
 var login = require('./routes/login.js');
 var adduser = require('./routes/adduser.js');
@@ -24,7 +25,7 @@ app.use('/adduser', adduser);
 
 // start app
 
-MongoClient.connect('mongodb://130.245.171.133:27017', (err, client) => {
+MongoClient.connect(mongo_address, (err, client) => {
     // ... start the server
     if(err){
         console.log(err);

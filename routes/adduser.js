@@ -14,9 +14,6 @@ router.get('/',function(req,res){
 });
 router.post('/',jsonParser,function(req,res){
     data = req.body;
-    if (data.status=='OK'){
-        res.redirect('/')
-    }else{
     data['valide'] = "false";
     var db = req.app.locals.db;
     //add user to database
@@ -30,7 +27,6 @@ router.post('/',jsonParser,function(req,res){
     console.log(data);
     res.location('/html/index.html');
     res.json({ status:'OK'});
-    }
 })
 
 //export this router to use in our index.js
