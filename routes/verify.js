@@ -12,9 +12,7 @@ router.post('/',jsonParser,function(req,res){
     var db = req.app.locals.db;
     db.collection('user').find({ 'email': data['email'] },function(error, cursor){
         cursor.forEach(function(error,data){
-            if(data){
                 console.log(data);
-            }
         });
     });
     res.json({ status:'OK'});
