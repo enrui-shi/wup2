@@ -15,7 +15,7 @@ router.get('/',function(req,res){
 router.post('/',jsonParser,function(req,res){
     data = req.body;
     if (data.status=='OK'){
-        res.red
+        res.redirect('/')
     }else{
     data['valide'] = "false";
     var db = req.app.locals.db;
