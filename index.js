@@ -36,7 +36,7 @@ MongoClient.connect(mongo_address, (err, client) => {
         console.log("success connet to db");
     }
     db = client.db('wup2');
-    console.log(db);
+    //console.log(db);
     app.locals.db = db;
     app.listen(port,'0.0.0.0', () => {
         return console.log(`App listening on port ${port}!`);
