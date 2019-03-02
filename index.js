@@ -6,9 +6,16 @@ const port = 3000;
 const MongoClient = require('mongodb').MongoClient;
 
 const mongo_address = 'mongodb://130.245.171.133:27017';
+
 //routes
 var login = require('./routes/login.js');
 var adduser = require('./routes/adduser.js');
+var verify = require('./routes/verify.js');
+
+//add api
+app.use('/login', login);
+app.use('/adduser', adduser);
+app.use('/verify', verify);
 
 //file
 app.use("/styles", express.static(__dirname + '/styles'));
@@ -19,11 +26,7 @@ app.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/html/index.html'));
 })
 
-//add api
-app.use('/login', login);
-app.use('/adduser', adduser);
-
-// start app
+// start app,
 
 MongoClient.connect(mongo_address, (err, client) => {
     // ... start the server
