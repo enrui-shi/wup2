@@ -11,8 +11,10 @@ router.post('/',jsonParser,function(req,res){
     console.log(data['key']);
     var db = req.app.locals.db;
     db.collection('user').find({ 'email': data['email'] },function(error, cursor){
-        cursor.forEach(function(error,data){
-                console.log(data);
+        console.log("get cursor");
+        console.log(cursor);
+        cursor.forEach(function(error,field){
+                console.log(field);
         });
     });
     res.json({ status:'OK'});
