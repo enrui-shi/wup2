@@ -12,6 +12,7 @@ router.post('/',jsonParser,function(req,res){
     var db = req.app.locals.db;
     var result = db.collection('user').find({ 'email': data['email'] 
     }).toArray(function(err, result){
+        return result;
         //console.log(result);
     });
    console.log(result);
