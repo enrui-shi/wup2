@@ -23,9 +23,12 @@ router.post('/',jsonParser,function(req,res){
                   'valide': 'true'
                 }
              })
+        }else{
+            json.status='ERROR';
         }
+        res.json(json);
     });
-    res.json(json);
+    
 });
 
 

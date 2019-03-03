@@ -14,6 +14,7 @@ router.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/..'+'/html/adduser.html'));
 });
 router.post('/',jsonParser,function(req,res){
+    json = {status:"OK"};
     data = req.body;
     data['valide'] = "false";
     data['key'] = Math.floor((Math.random() * 8999) + 1000);
@@ -22,13 +23,16 @@ router.post('/',jsonParser,function(req,res){
     db.collection("user").insertOne(data, function(err, res) {
         if (err) {
             console.log(err);
+            json.status="ERROR";
         }else{
             console.log("1 document inserted");
             sendMail(data);
+            console.log(data);
         }
+        res.json({ status:'OK'});
       });
-    console.log(data);
-    res.json({ status:'OK'});
+    
+    
 })
 
 //export this router to use in our index.js

@@ -23,7 +23,7 @@ app.use('/verify', verify);
 app.use("/styles", express.static(__dirname + '/styles'));
 app.use("/script", express.static(__dirname + '/script'));
 //session
-app.use(session({
+app.use(cookieSession({
     name: 'session',
     keys: ['lalala'],
   }))
