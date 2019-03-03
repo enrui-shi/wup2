@@ -20,8 +20,6 @@ router.post('/',jsonParser,function(req,res){
     });
 
     req.session.name  = data.name
-    console.log(req.session);
-    console.log(req.body);
     res.json({ status:'OK'})
     //res.sendFile(path.join(__dirname+'/html/index.html'));
 })

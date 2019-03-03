@@ -20,7 +20,7 @@ router.post('/',jsonParser,function(req,res){
     data['key'] = Math.floor((Math.random() * 8999) + 1000);
     var db = req.app.locals.db;
     //add user to database
-    db.collection("user").insertOne(data, function(err, res) {
+    db.collection("user").insertOne(data, function(err, a) {
         if (err) {
             console.log(err);
             json.status="ERROR";
@@ -29,7 +29,7 @@ router.post('/',jsonParser,function(req,res){
             sendMail(data);
             console.log(data);
         }
-        res.json({ status:'OK'});
+        res.json(json);
       });
     
     
