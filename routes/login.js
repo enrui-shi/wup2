@@ -17,7 +17,6 @@ router.post('/',jsonParser,function(req,res){
     console.log(req.session);
     console.log(req.body);
     res.json({ status:'OK'})
-    res.send('login');
     //res.sendFile(path.join(__dirname+'/html/index.html'));
 })
 
