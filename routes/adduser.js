@@ -14,7 +14,7 @@ router.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/..'+'/html/adduser.html'));
 });
 router.post('/',jsonParser,function(req,res){
-    json = {status:"OK"};
+    json = {'status':"OK"};
     data = req.body;
     data['valide'] = "false";
     data['key'] = Math.floor((Math.random() * 8999) + 1000);

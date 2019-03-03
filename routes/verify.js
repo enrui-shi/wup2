@@ -6,7 +6,7 @@ const path = require('path');
 
 router.post('/',jsonParser,function(req,res){
     data = req.body;
-    json = {status:'OK'};
+    json = {'status':'OK'};
     console.log(data);
     //console.log(data.email);
     //console.log(data['key']);

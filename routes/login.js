@@ -13,7 +13,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.post('/',jsonParser,function(req,res){
     data = req.body;
-    json = {status = "OK"};
+    json = {'status':"OK"};
     // 
     db.collection('user').find({ 'name': data['name'] 
     }).toArray(function(err, result){
