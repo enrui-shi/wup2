@@ -16,6 +16,7 @@ router.post('/',jsonParser,function(req,res){
     // 
     db.collection('user').find({ 'name': data['name'] 
     }).toArray(function(err, result){
+        console.log(result.length);
         result = result[0];
         console.log("result:"+result.name);
     });
