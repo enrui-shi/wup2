@@ -13,17 +13,27 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.post('/',jsonParser,function(req,res){
     data = req.body;
+    json = {status = "OK"};
     // 
     db.collection('user').find({ 'name': data['name'] 
     }).toArray(function(err, result){
-        console.log(result.length);
-        result = result[0];
-        console.log("result:"+result.name);
+        if(result.length==1){
+            result = result[0];
+            if(result.password == data.password && result.valide == 'true'){
+                //login
+                req.session.current_user = result.name;
+                req.session.status = 'online';
+                console.log(req.session);
+            }else{
+                console.log(result.name+'false to login');
+                json.status = 'ERROR'
+            }
+        }else{
+            console.log(result.length);
+            json.status = 'ERROR';
+        }
+        res.json(json);
     });
-
-    req.session.name  = data.name
-    res.json({ status:'OK'})
-    //res.sendFile(path.join(__dirname+'/html/index.html'));
 })
 
 //export this router to use in our index.js
