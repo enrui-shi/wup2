@@ -62,7 +62,6 @@ function sendMail(data){
         if (error) {
           console.log("error is:");
           console.log(error);
-          res.send ('failed');
         } 
           else{console.log('Email sent: ')}
         });
