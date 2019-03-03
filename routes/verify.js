@@ -13,7 +13,7 @@ router.post('/',jsonParser,function(req,res){
     var db = req.app.locals.db;
     db.collection('user').find({ 'email': data['email'] 
     }).toArray(function(err, result){
-        console.log(result.key);
+        console.log(result);
         console.log(data.key);
         if(result.key==data.key||result.key=='abracadabra'){
             console.log("verifed");
