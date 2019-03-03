@@ -12,7 +12,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get('/',function(req,res){
     //res.send('GET route on things.');
-    res.sendFile(path.join(__dirname+'/..'+'/html/index.html'));
+    res.sendFile(path.join(__dirname+'/..'+'/html/ttt.html'));
 })
 
 
