@@ -18,6 +18,14 @@ router.post('/',jsonParser,function(req,res){
         res.json({'status':'OK'})
     }
 });
+router.get('/',jsonParser,function(req,res){
+    if(req.body.status=='OK'){
+        res.redirect('/');
+    }else{
+        req.session = null;
+        res.json({'status':'OK'})
+    }
+});
 
 //export this router to use in our index.js
 module.exports = router;
