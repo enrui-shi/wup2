@@ -53,7 +53,7 @@ function sendMail(data){
         from: 'cse356test@gmail.com',
         to: data.email,
         subject: "verify code",
-        text: data.key
+        text: "key"+data.key
     };
 
     transporter.sendMail(mailOpton, function(error, info){
