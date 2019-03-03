@@ -27,7 +27,7 @@ app.use('/verify', verify);
 app.use('/logout', logout);
 app.use('/ttt',ttt);
 //file
-app.use("/styles", express.static(__dirname + '/styles'));
+app.use("/style", express.static(__dirname + '/style'));
 app.use("/script", express.static(__dirname + '/script'));
 
 
