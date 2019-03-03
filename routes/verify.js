@@ -6,17 +6,20 @@ const path = require('path');
 
 router.post('/',jsonParser,function(req,res){
     data = req.body;
+    json = {status:'OK'};
     console.log(data);
     console.log(data.email);
     console.log(data['key']);
     var db = req.app.locals.db;
-    var result = db.collection('user').find({ 'email': data['email'] 
+    db.collection('user').find({ 'email': data['email'] 
     }).toArray(function(err, result){
-        return result;
-        //console.log(result);
+        console.log("inside callback");
+        console.log(data);
+        console.log("result");
+        console.log(result);
+        json = {status:"ERROR"};
     });
-   console.log(result);
-    res.json({ status:'OK'});
+    res.json(json);
 });
 
 
