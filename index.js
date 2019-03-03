@@ -4,7 +4,11 @@ const app = express();
 const path = require('path');
 const port = 3000;
 const MongoClient = require('mongodb').MongoClient;
+//session
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
+//const
 const mongo_address = 'mongodb://130.245.171.133:27017';
 
 //routes
@@ -36,6 +40,11 @@ MongoClient.connect(mongo_address, (err, client) => {
         console.log("success connet to db");
     }
     db = client.db('wup2');
+    //set up session 
+    app.use(session({
+        secret: 'lalala',
+        store: new MongoStore({ client: client })
+    }));
     //console.log(db);
     app.locals.db = db;
     app.listen(port,'0.0.0.0', () => {

@@ -37,7 +37,7 @@ module.exports = router;
 
 
 function sendMail(data){
-    console.log("data:" ,data);
+    //console.log("data:" ,data);
     var transporter = nodemailer.createTransport({
         //host: 'email.cloud.compas.cs.stonybrook.edu',
         host:'smtp.gmail.com',
