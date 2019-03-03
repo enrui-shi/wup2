@@ -15,6 +15,7 @@ router.post('/',jsonParser,function(req,res){
     data = req.body;
     //req.session.name = data.name;
     console.log(data);
+    console.log(req.session);
     req.session.name  = data.name
     console.log(req.session);
     console.log(req.body);
