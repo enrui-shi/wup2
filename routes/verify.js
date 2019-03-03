@@ -13,18 +13,22 @@ router.post('/',jsonParser,function(req,res){
     var db = req.app.locals.db;
     db.collection('user').find({ 'email': data['email'] 
     }).toArray(function(err, result){
-        result=result[0];
-        console.log(result.key);
-        console.log(data.key);
-        if(result.key==data.key||data.key=='abracadabra'){
-            console.log("verifed");
-            db.collection('user').update({'email': data['email']},{ $set:
-                {
-                  'valide': 'true'
-                }
-             })
+        if(err){
+            json.status = 'ERROR';
         }else{
-            json.status='ERROR';
+            result=result[0];
+            console.log(result.key);
+            console.log(data.key);
+            if(result.key==data.key||data.key=='abracadabra'){
+                console.log("verifed");
+                db.collection('user').update({'email': data['email']},{ $set:
+                    {
+                    'valide': 'true'
+                    }
+                })
+            }else{
+                json.status='ERROR';
+            }
         }
         res.json(json);
     });
