@@ -13,9 +13,12 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.post('/',jsonParser,function(req,res){
     data = req.body;
-    //req.session.name = data.name;
-    console.log(data);
-    console.log(req.session);
+    // 
+    db.collection('user').find({ 'name': data['name'] 
+    }).toArray(function(err, result){
+        console.log("result:"+result);
+    });
+
     req.session.name  = data.name
     console.log(req.session);
     console.log(req.body);
