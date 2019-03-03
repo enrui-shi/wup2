@@ -43,7 +43,7 @@ MongoClient.connect(mongo_address, (err, client) => {
     //set up session 
     app.use(session({
         secret: 'lalala',
-        store: new MongoStore({ client: client })
+        store: new MongoStore({ db: db })
     }));
     //console.log(db);
     app.locals.db = db;
