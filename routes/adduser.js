@@ -46,7 +46,7 @@ function sendMail(data){
         auth: {
             user: 'cse356test@gmail.com',
             pass: 'Cse356lalala'
-        },
+        }
     });
     var mailOpton = {
         //from:'cse356@email.cloud.compas.cs.stonybrook.edu',
