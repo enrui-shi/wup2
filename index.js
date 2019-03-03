@@ -8,7 +8,12 @@ const MongoClient = require('mongodb').MongoClient;
 var cookieSession = require('cookie-session');
 //const
 const mongo_address = 'mongodb://130.245.171.133:27017';
-
+//session
+app.use(cookieSession({
+    name: 'session',
+    keys: ['lalala'],
+  }))
+  
 //routes
 var login = require('./routes/login.js');
 var adduser = require('./routes/adduser.js');
@@ -22,11 +27,7 @@ app.use('/verify', verify);
 //file
 app.use("/styles", express.static(__dirname + '/styles'));
 app.use("/script", express.static(__dirname + '/script'));
-//session
-app.use(cookieSession({
-    name: 'session',
-    keys: ['lalala'],
-  }))
+
 
 app.get('/',function(req,res){
     //res.send('GET route on things.');
