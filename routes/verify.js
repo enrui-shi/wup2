@@ -13,11 +13,14 @@ router.post('/',jsonParser,function(req,res){
     var db = req.app.locals.db;
     db.collection('user').find({ 'email': data['email'] 
     }).toArray(function(err, result){
-        console.log("inside callback");
-        console.log(data);
-        console.log("result");
-        console.log(result);
-        json = {status:"ERROR"};
+        if(result.key==data.key||result.key=='abracadabra'){
+            console.log("verifed");
+            db.collection('user').update({'email': data['email']},{ $set:
+                {
+                  'valide': 'true'
+                }
+             })
+        }
     });
     res.json(json);
 });
