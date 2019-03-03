@@ -53,7 +53,7 @@ function sendMail(data){
     var mailOpton = {
         //from:'cse356@email.cloud.compas.cs.stonybrook.edu',
         from: 'cse356test@gmail.com',
-        to: data.mail,
+        to: data.email,
         subject: "verify code",
         text: data.key
     };
