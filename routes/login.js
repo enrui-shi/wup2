@@ -1,8 +1,19 @@
 var express = require('express');
-
+var bodyParser = require('body-parser');
 var router = express.Router();
+const path = require('path');
+const nodemailer = require('nodemailer');
 
-router.post('/',function(req,res){
+// create application/json parser
+var jsonParser = bodyParser.json()
+ 
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+
+router.post('/',jsonParser,function(req,res){
+    data = req.body;
+    req.session.name = data.name;
     console.log(req.session);
     console.log(req.body);
     res.json({ status:'OK'})
