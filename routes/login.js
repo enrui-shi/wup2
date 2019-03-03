@@ -13,7 +13,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.post('/',jsonParser,function(req,res){
     data = req.body;
-    req.session.name = data.name;
+    //req.session.name = data.name;
     console.log(req.session);
     console.log(req.body);
     res.json({ status:'OK'})
