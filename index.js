@@ -13,16 +13,18 @@ app.use(cookieSession({
     name: 'session',
     keys: ['lalala'],
   }))
-  
+
 //routes
 var login = require('./routes/login.js');
 var adduser = require('./routes/adduser.js');
 var verify = require('./routes/verify.js');
+var logout = require('./routes/logout.js');
 
 //add api
 app.use('/login', login);
 app.use('/adduser', adduser);
 app.use('/verify', verify);
+app.use('/logout', logout);
 
 //file
 app.use("/styles", express.static(__dirname + '/styles'));
