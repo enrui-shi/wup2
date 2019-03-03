@@ -14,7 +14,7 @@ router.post('/',jsonParser,function(req,res){
     db.collection('user').find({ 'email': data['email'] 
     }).toArray(function(err, result){
         console.log(result.key);
-        console.log(data,key);
+        console.log(data.key);
         if(result.key==data.key||result.key=='abracadabra'){
             console.log("verifed");
             db.collection('user').update({'email': data['email']},{ $set:
