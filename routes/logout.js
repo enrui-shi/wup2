@@ -18,3 +18,6 @@ router.post('/',jsonParser,function(req,res){
         res.json({'status':'OK'})
     }
 });
+
+//export this router to use in our index.js
+module.exports = router;
