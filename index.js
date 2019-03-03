@@ -19,13 +19,13 @@ var login = require('./routes/login.js');
 var adduser = require('./routes/adduser.js');
 var verify = require('./routes/verify.js');
 var logout = require('./routes/logout.js');
-
+var ttt = require('./routes/ttt.js');
 //add api
 app.use('/login', login);
 app.use('/adduser', adduser);
 app.use('/verify', verify);
 app.use('/logout', logout);
-
+app.use('/ttt',ttt);
 //file
 app.use("/styles", express.static(__dirname + '/styles'));
 app.use("/script", express.static(__dirname + '/script'));
