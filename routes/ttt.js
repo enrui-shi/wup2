@@ -10,7 +10,7 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.get('/',function(req,res){
+router.get('/',function(req,res){
     //res.send('GET route on things.');
     res.sendFile(path.join(__dirname+'/..'+'/html/index.html'));
 })
