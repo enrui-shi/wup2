@@ -22,9 +22,6 @@ router.get('/',function(req,res){
 })
 
 router.post('/play',jsonParser,function(req,res){
-    if(req.session=={}){
-      res.redirect('/');
-    }else{
     data = req.body;
     console.log(data);
     move = data.move;
@@ -33,6 +30,7 @@ router.post('/play',jsonParser,function(req,res){
     db.collection('user').find({ 'username': req.session.current_user 
     }).toArray(function(err, result){
         console.log(result);
+        if(result.length==1){
         result = result[0];
         console.log(result);
         grid = result.current_grid;
@@ -67,8 +65,10 @@ router.post('/play',jsonParser,function(req,res){
         }
         console.log("game send back is: "+json.grid);
         res.json(json);
+      }else{
+        res.json({'status':'ERROR'});
+      }
     });
-  }
 });
 router.get('/current_game',function(req,res){
     db.collection('user').find({ 'username': req.session.current_user 
