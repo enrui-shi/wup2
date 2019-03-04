@@ -4,7 +4,7 @@ $(document).ready(function(){
     get_grid();
     $('#fresh').click(function(){
         winner = null;
-        $("#winner").text();
+        $("#winner").text("");
         get_grid();
     });
     $(".cell").click(function(){
