@@ -1,7 +1,7 @@
 var winner = null;
 
 $(document).ready(function(){
-    get_grid();
+    //get_grid();
 
     $(".cell").click(function(){
       if (winner == null){
