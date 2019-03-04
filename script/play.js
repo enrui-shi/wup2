@@ -1,10 +1,10 @@
-var winner = "";
+var winner = null;
 
 $(document).ready(function(){
     get_grid();
 
     $(".cell").click(function(){
-      if (winner == ""){
+      if (winner == null){
       $(this).text("X");
       //grid[$(this).attr("id")]="X";
       move = $(this).attr("id")
