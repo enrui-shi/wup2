@@ -20,12 +20,16 @@ var adduser = require('./routes/adduser.js');
 var verify = require('./routes/verify.js');
 var logout = require('./routes/logout.js');
 var ttt = require('./routes/ttt.js');
+var listgame = require('./routes/listgame.js');
+var getgame = require('./routes/getgame.js');
 //add api
 app.use('/login', login);
 app.use('/adduser', adduser);
 app.use('/verify', verify);
 app.use('/logout', logout);
 app.use('/ttt',ttt);
+app.use('/listgame',listgame);
+app.use('/getgame',getgame);
 //file
 app.use("/style", express.static(__dirname + '/style'));
 app.use("/script", express.static(__dirname + '/script'));

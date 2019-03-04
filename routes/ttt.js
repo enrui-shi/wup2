@@ -48,7 +48,7 @@ router.post('/play',jsonParser,function(req,res){
                 if (err) {
                     console.log("error to add game to games");
                 }else{
-                    console.log(game.id+"add to games");
+                    console.log(game.id+" add to games");
                 }
             });
             //reset grid
@@ -83,7 +83,7 @@ function play (move,grid){
         }
       }
       if(counter==0){
-        return {'grid':grid,'winner':'d'}
+        return {'grid':grid,'winner':'Tie'}
       }
       var winner = check(grid);
       if(winner ==null){
