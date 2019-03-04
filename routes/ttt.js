@@ -39,7 +39,7 @@ router.post('/play',jsonParser,function(req,res){
         }else{
             //store game to db
             start_date = Date();
-            username = res.session.current_user;
+            username = req.session.current_user;
             id = username + start_date;
             grid = json.grid;
             winner = json.winner;
