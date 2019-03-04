@@ -20,7 +20,7 @@ var adduser = require('./routes/adduser.js');
 var verify = require('./routes/verify.js');
 var logout = require('./routes/logout.js');
 var ttt = require('./routes/ttt.js');
-var listgame = require('./routes/listgame.js');
+var listgames = require('./routes/listgames.js/index.js');
 var getgame = require('./routes/getgame.js');
 var getscore = require('./routes/getscore.js');
 //add api
@@ -29,7 +29,7 @@ app.use('/adduser', adduser);
 app.use('/verify', verify);
 app.use('/logout', logout);
 app.use('/ttt',ttt);
-app.use('/listgame',listgame);
+app.use('/listgames',listgames);
 app.use('/getgame',getgame);
 app.use('/getscore',getscore);
 //file
