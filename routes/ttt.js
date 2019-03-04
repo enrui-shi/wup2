@@ -22,7 +22,7 @@ router.get('/',function(req,res){
 })
 
 router.post('/play',jsonParser,function(req,res){
-    if(req.session==null){
+    if(req.session=={}){
       res.redirect('/');
     }else{
     data = req.body;
