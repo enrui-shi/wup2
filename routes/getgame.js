@@ -10,8 +10,8 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-router.post('/getgame',jsonParser,function(req,res){
-    if(req.session != null){
+router.post('/',jsonParser,function(req,res){
+    if(req.session == null){
         res.json({'status':"ERROR"});
     }else{
         data = req.body;

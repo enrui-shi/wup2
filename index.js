@@ -22,6 +22,7 @@ var logout = require('./routes/logout.js');
 var ttt = require('./routes/ttt.js');
 var listgame = require('./routes/listgame.js');
 var getgame = require('./routes/getgame.js');
+var getscore = require('./routes/getscore.js');
 //add api
 app.use('/login', login);
 app.use('/adduser', adduser);
@@ -30,6 +31,7 @@ app.use('/logout', logout);
 app.use('/ttt',ttt);
 app.use('/listgame',listgame);
 app.use('/getgame',getgame);
+app.use('/getscore',getscore);
 //file
 app.use("/style", express.static(__dirname + '/style'));
 app.use("/script", express.static(__dirname + '/script'));
