@@ -25,9 +25,13 @@ router.post('/play',jsonParser,function(req,res){
     data = req.body;
     console.log(data);
     move = data.move;
+    console.log("sesstion: ")
+    console.log(req.session);
     db.collection('user').find({ 'username': req.session.current_user 
     }).toArray(function(err, result){
+        console.log(result);
         result = result[0];
+        console.log(result);
         grid = result.current_grid;
         json = play(move,grid);
         if(json.winner==null){
@@ -58,7 +62,7 @@ router.post('/play',jsonParser,function(req,res){
                 }
             })
         }
-        console.log("game send back is: "+json);
+        console.log("game send back is: "+json.grid);
         res.json(json);
     });
 });
@@ -75,6 +79,9 @@ function play (move,grid){
     if( move == null){
       return {'grid':grid,'winner':null};
     }else{
+      if(grid[move]!= ' '){
+        return {'grid':grid,'winner':null};
+      }
       grid[move] = "X";
       var counter = 0;
       for(i = 0;i<9;i++){
