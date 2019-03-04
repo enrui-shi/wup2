@@ -30,11 +30,19 @@ router.post('/play',jsonParser,function(req,res){
         result = result[0];
         grid = result.current_grid;
         json = play(move,grid);
-        db.collection('user').update({'username': req.session.current_user},{ $set:
-            {
-            'current_grid': json.grid
-            }
-        })
+        if(json.winner==null){
+            db.collection('user').update({'username': req.session.current_user},{ $set:
+                {
+                'current_grid': json.grid
+                }
+            })
+        }else{
+            db.collection('user').update({'username': req.session.current_user},{ $set:
+                {
+                'current_grid': [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+                }
+            })
+        }
         console.log(json);
         res.json(json);
     });
