@@ -24,20 +24,18 @@ $(document).ready(function(){
       success: function(data){
       }
     })
-
-    function get_grid(){
-        $.ajax({
-            url:"/ttt/current_game",
-            type:"GET",
-            contentType:"application/json; charset=utf-8",
-            dataType:"json",
-            success: function(data){
-                grid = data.grid;
-                for(var i=0; i<9;i++){
-                    $('#' + i).text(grid[i]);
-                }
-            }
-          })
     }
-   
+function get_grid(){
+    $.ajax({
+        url:"/ttt/current_game",
+        type:"GET",
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+        success: function(data){
+            grid = data.grid;
+            for(var i=0; i<9;i++){
+                $('#' + i).text(grid[i]);
+            }
+        }
+      })
 }
