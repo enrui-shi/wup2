@@ -2,7 +2,9 @@ var winner = null;
 
 $(document).ready(function(){
     get_grid();
-
+    $('#fresh').click(function(){
+        get_grid();
+    });
     $(".cell").click(function(){
       if (winner == null){
       $(this).text("X");
