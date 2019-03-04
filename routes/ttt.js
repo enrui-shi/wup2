@@ -13,7 +13,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 router.get('/',function(req,res){
     //res.send('GET route on things.');
     console.log(req.session);
-    if(req.session.status = 'online'){
+    if(req.session.status == 'online'){
         res.sendFile(path.join(__dirname+'/..'+'/html/ttt.html'));
     }else{
         res.redirect('/');
