@@ -4,6 +4,10 @@ var jsonParser = bodyParser.json()
 var router = express.Router();
 const path = require('path');
 
+router.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/html/verify.html'));
+});
+
 router.post('/',jsonParser,function(req,res){
     data = req.body;
     json = {'status':'OK'};
