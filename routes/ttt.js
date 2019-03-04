@@ -28,9 +28,13 @@ router.post('/play',jsonParser,function(req,res){
     db.collection('user').find({ 'username': req.session.current_user 
     }).toArray(function(err, result){
         result = result[0];
-        gird = result.current_grid;
-        //
-        json = play(move,gird);
+        grid = result.current_grid;
+        json = play(move,grid);
+        db.collection('user').update({'username': req.session.current_user},{ $set:
+            {
+            'current_grid': json.grid
+            }
+        })
         console.log(json);
         res.json(json);
     });
@@ -122,8 +126,8 @@ function play (move,grid){
   
   function checkPos(turn,grid){
     for(i = 0;i<9;i++){
-      console.log(i)
-      console.log(grid[i])
+      //console.log(i)
+      //console.log(grid[i])
       if(grid[i]==turn){
         if (i ==0||i==3||i ==6){
           if(grid[i+1]==turn&&grid[i+2]==' '){ return i+2}

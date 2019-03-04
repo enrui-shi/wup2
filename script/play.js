@@ -1,7 +1,7 @@
 var winner = null;
 
 $(document).ready(function(){
-    //get_grid();
+    get_grid();
 
     $(".cell").click(function(){
       if (winner == null){
@@ -31,6 +31,7 @@ $(document).ready(function(){
     })
     }
 function get_grid(){
+    console.log("download current grid from db");
     $.ajax({
         url:"/ttt/current_game",
         type:"GET",
