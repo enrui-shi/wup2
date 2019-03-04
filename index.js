@@ -20,7 +20,7 @@ var adduser = require('./routes/adduser.js');
 var verify = require('./routes/verify.js');
 var logout = require('./routes/logout.js');
 var ttt = require('./routes/ttt.js');
-var listgames = require('./routes/listgames.js/index.js');
+var listgames = require('./routes/listgames.js');
 var getgame = require('./routes/getgame.js');
 var getscore = require('./routes/getscore.js');
 //add api
