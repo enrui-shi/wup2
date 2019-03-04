@@ -34,6 +34,12 @@ router.post('/play',jsonParser,function(req,res){
         res.json(json);
     });
 });
-
+router.get('/current_game',function(req,res){
+    db.collection('user').find({ 'username': req.session.current_user 
+    }).toArray(function(err, result){
+        result = result[0];
+        res.json({'grid':result.current_grid});
+    });
+});
 //export this router to use in our index.js
 module.exports = router;
