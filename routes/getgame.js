@@ -17,10 +17,14 @@ router.post('/',jsonParser,function(req,res){
         data = req.body;
         db.collection('games').find({ 'id': data.id
             }).toArray(function(err, result){
-                result = result[0];
-                console.log(result);
-                json = {'status':'OK', 'grid': result.grid, 'winner':result.winner}
-                res.json(json);
+                //console.log(result);
+                if(result.length!=1){
+                    res.json({'status':"ERROR"});
+                }else{
+                    result = result[0];
+                    json = {'status':'OK', 'grid': result.grid, 'winner':result.winner}
+                    res.json(json);
+                }
             });
     }
 });
