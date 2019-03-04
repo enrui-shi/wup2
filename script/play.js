@@ -3,6 +3,8 @@ var winner = null;
 $(document).ready(function(){
     get_grid();
     $('#fresh').click(function(){
+        winner = null;
+        $("#winner").text();
         get_grid();
     });
     $(".cell").click(function(){
@@ -26,6 +28,9 @@ $(document).ready(function(){
       success: function(data){
           winner = data.winner;
           grid = data.grid;
+          if(winner!=null){
+            $("#winner").text("Winner is: " + data.winner);
+          }
           for(var i=0; i<9;i++){
             $('#' + i).text(grid[i]);
         }
