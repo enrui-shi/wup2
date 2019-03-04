@@ -18,6 +18,7 @@ router.post('/',jsonParser,function(req,res){
     data = req.body;
     data['valide'] = "false";
     data['key'] = Math.floor((Math.random() * 8999) + 1000);
+    data['current_grid'] = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
     var db = req.app.locals.db;
     //add user to database
     db.collection("user").insertOne(data, function(err, a) {

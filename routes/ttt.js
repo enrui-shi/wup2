@@ -12,10 +12,17 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get('/',function(req,res){
     //res.send('GET route on things.');
-    res.sendFile(path.join(__dirname+'/..'+'/html/ttt.html'));
+    console.log(req.session);
+    if(req.session.status = 'online'){
+        res.sendFile(path.join(__dirname+'/..'+'/html/ttt.html'));
+    }else{
+        res.redirect('/');
+    }
 })
 
+router.post('/',jsonParser,function(req,res){
 
+});
 
 //export this router to use in our index.js
 module.exports = router;
