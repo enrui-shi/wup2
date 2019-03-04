@@ -11,7 +11,7 @@ router.post("/",function(req,res){
             var len = result.length
             var games = []
             for(i=0;i<len;i++){
-                game[i] = {'id':result[i].id,'start_date':result[i].start_date}
+                games[i] = {'id':result[i].id,'start_date':result[i].start_date}
             }
             res.json({'status':"OK",'games':games})            
         })
