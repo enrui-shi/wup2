@@ -90,7 +90,7 @@ function play (move,grid){
         }
       }
       if(counter==0){
-        return {'grid':grid,'winner':'Tie'}
+        return {'grid':grid,'winner':' '}
       }
       var winner = check(grid);
       if(winner ==null){

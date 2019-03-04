@@ -21,7 +21,7 @@ router.post("/",function(req,res){
                 if(win == 'X'){
                     hum++;
                 }
-                if(win == 'Tie'){
+                if(win == ' '){
                     tie++;
                 }
             }
