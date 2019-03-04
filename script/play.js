@@ -22,6 +22,11 @@ $(document).ready(function(){
       contentType:"application/json; charset=utf-8",
       dataType:"json",
       success: function(data){
+          winner = data.winner;
+          grid = data.grid;
+          for(var i=0; i<9;i++){
+            $('#' + i).text(grid[i]);
+        }
       }
     })
     }
