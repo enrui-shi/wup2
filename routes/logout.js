@@ -11,13 +11,13 @@ var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.post('/',jsonParser,function(req,res){
+        console.log(req.session.current_user+" logout");
         req.session = null;
-        console.log(req.session);
         res.json({'status':'OK'});
 });
 router.get('/',jsonParser,function(req,res){
+        console.log(req.session.current_user+" logout");
         req.session = null;
-        console.log(req.session);
         res.json({'status':'OK'});
 });
 

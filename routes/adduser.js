@@ -26,9 +26,8 @@ router.post('/',jsonParser,function(req,res){
             console.log(err);
             json.status="ERROR";
         }else{
-            console.log("1 document inserted");
+            console.log(data.username+" signed up");
             sendMail(data);
-            console.log(data);
         }
         res.json(json);
       });

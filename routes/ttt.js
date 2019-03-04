@@ -37,13 +37,28 @@ router.post('/play',jsonParser,function(req,res){
                 }
             })
         }else{
+            //store game to db
+            start_date = Date();
+            username = res.session.current_user;
+            id = username + start_date;
+            grid = json.grid;
+            winner = json.winner;
+            game = {'id':id , 'start_date':start_date, 'username':username, 'grid':grid, 'winner':winner};
+            db.collection("games").insertOne(game, function(err, a) {
+                if (err) {
+                    console.log("error to add game to games");
+                }else{
+                    console.log(game.id+"add to games");
+                }
+            });
+            //reset grid
             db.collection('user').update({'username': req.session.current_user},{ $set:
                 {
                 'current_grid': [" ", " ", " ", " ", " ", " ", " ", " ", " "]
                 }
             })
         }
-        console.log(json);
+        console.log("game send back is: "+json);
         res.json(json);
     });
 });

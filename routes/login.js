@@ -23,13 +23,13 @@ router.post('/',jsonParser,function(req,res){
                 //login
                 req.session.current_user = result.username;
                 req.session.status = 'online';
-                console.log(req.session);
+                console.log(req.session.current_user+" login");
             }else{
                 console.log(result.username+'false to login');
                 json.status = 'ERROR'
             }
         }else{
-            console.log(result.length);
+            console.log("error: find "+result.length+" result");
             json.status = 'ERROR';
         }
         res.json(json);
