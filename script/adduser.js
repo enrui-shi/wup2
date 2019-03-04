@@ -2,7 +2,7 @@
 $(document).ready(function(){
     var adduser_form = $("#adduser");
     adduser_form.submit( function(e) {
-        var adduser_data = { name: $('#username').val(), email: $('#email').val() , password: $('#password').val() };
+        var adduser_data = { username: $('#username').val(), email: $('#email').val() , password: $('#password').val() };
         e.preventDefault();
         $.ajax({
             type: adduser_form.attr('method'),

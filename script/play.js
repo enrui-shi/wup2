@@ -6,6 +6,7 @@ $(document).ready(function(){
       $(this).text("X");
       //grid[$(this).attr("id")]="X";
       move = $(this).attr("id")
+      console.log(move);
       sendJson();
       }
     });

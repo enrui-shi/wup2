@@ -2,7 +2,7 @@
 $(document).ready(function(){
     var login_form = $("#login");
     login_form.submit( function(e) {
-        var login_data = { name: $('#username').val(), password: $('#password').val() };
+        var login_data = { username: $('#username').val(), password: $('#password').val() };
         e.preventDefault();
         $.ajax({
             type: login_form.attr('method'),
